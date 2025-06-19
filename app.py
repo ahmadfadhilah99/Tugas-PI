@@ -8,14 +8,7 @@ import pandas as pd
 app = Flask(__name__)
 CORS(app)
 
-# Load semua model
-models = {
-    'Frame': joblib.load('models/model_Frame.pkl'),
-    'Stem': joblib.load('models/model_Stem.pkl'),
-    'Handlebar': joblib.load('models/model_Handlebar.pkl'),
-    'Crank': joblib.load('models/model_Crank.pkl'),
-    'Saddle': joblib.load('models/model_Saddle.pkl'),
-}
+model = joblib.load('models/bike_fitting_model.pkl')
 
 @app.route('/')
 def index():
@@ -37,9 +30,6 @@ def info():
 def predict():
     try:
         data = request.json
-
-        print("Data diterima:", data)  # Debugging
-
         input_data = pd.DataFrame([{
             'Tinggi_Badan': data['tinggi'],
             'Inseam': data['inseam'],
@@ -47,13 +37,22 @@ def predict():
             'Lengan': data['lengan'],
             'Bahu': data['bahu']
         }])
-        
-        output = {key: models[key].predict(input_data)[0] for key in models}
-        print("Output prediksi:", output)  # Debugging
+        # Prediksi, misal hasilnya array: [Frame, Saddle, Crank, Stem, Handlebar]
+        hasil = model.predict(input_data)[0]
+        # Misal urutannya: Frame, Saddle, Crank, Stem, Handlebar
+        crank_mm = hasil[2] * 10
+        handlebar_mm = hasil[3] * 10
+        stem_mm = hasil[4] * 10
+
+        output = {
+            'Frame': hasil[0],
+            'Saddle': round(hasil[1], 2),
+            'Crank': round(crank_mm, 0),
+            'Stem': round(stem_mm, 0),
+            'Handlebar': round(handlebar_mm, 0)
+        }
         return jsonify(output)
-    
     except Exception as e:
-        print("Terjadi error:", e)
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':

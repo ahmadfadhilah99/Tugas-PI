@@ -140,6 +140,11 @@
                       
                     </svg>
 
+                  <!-- Informasi tambahan -->
+                  <div class="alert alert-warning mt-4" role="alert" style="max-width: 700px; text-align: center;">
+                    <strong>Catatan:</strong> Hasil rekomendasi fitting ini dihasilkan oleh sistem otomatis dan bisa saja tidak 100% akurat. Silakan konsultasikan ke ahli fitting sepeda untuk hasil terbaik.
+                  </div>
+
                 </div>  
             </div>
 
@@ -188,8 +193,8 @@
       const data = {
         tinggi: parseFloat(document.getElementById('tinggi').value),
         inseam: parseFloat(document.getElementById('inseam').value),
-        lengan: parseFloat(document.getElementById('lengan').value),
         torso: parseFloat(document.getElementById('torso').value),
+        lengan: parseFloat(document.getElementById('lengan').value),
         bahu: parseFloat(document.getElementById('bahu').value)
       };
 
@@ -214,11 +219,11 @@
         });
 
         // Tampilkan SVG & update nilainya
-        document.getElementById('frameSize').textContent = 'Frame: ' + hasil.Frame + ' cm';
+        document.getElementById('frameSize').textContent = 'Frame: ' + hasil.Frame;
         document.getElementById('saddleHeight').textContent = 'Saddle: ' + hasil.Saddle + ' cm';
-        document.getElementById('crankSize').textContent = 'Crank: ' + hasil.Crank + ' cm';
-        document.getElementById('stemSize').textContent = 'Stem: ' + hasil.Stem + ' cm';
-        document.getElementById('handlebarSize').textContent = 'Handlebar: ' + hasil.Handlebar + ' cm'; 
+        document.getElementById('crankSize').textContent = 'Crank: ' + hasil.Crank + ' mm';
+        document.getElementById('stemSize').textContent = 'Stem: ' + hasil.Stem + ' mm';
+        document.getElementById('handlebarSize').textContent = 'Handlebar: ' + hasil.Handlebar + ' mm'; 
 
 
       }, 2000); // delay 2 detik
