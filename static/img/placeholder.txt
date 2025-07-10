@@ -1,0 +1,35 @@
+INSTRUKSI MENAMBAHKAN GAMBAR BARU:
+
+1. Simpan file gambar di folder ini (static/img/)
+2. Format yang didukung: PNG, JPG, JPEG, SVG, GIF
+3. Gunakan nama file yang deskriptif
+
+Contoh nama file yang baik:
+- tinggi_badan.png
+- inseam_measurement.jpg
+- torso_measurement.png
+- bahu_measurement.png
+- lengan_measurement.png
+
+Contoh nama file yang kurang baik:
+- img1.png
+- foto.jpg
+- gambar.png
+
+Setelah menyimpan gambar, gunakan struktur HTML berikut di file template:
+
+<div class="image-container">
+    <img src="{{ url_for('static', filename='img/nama_file_anda.png') }}" 
+         class="img-fluid rounded shadow-sm" 
+         style="max-width: 400px;" 
+         alt="Deskripsi gambar">
+    <div class="image-caption">
+        <span class="image-number">Gambar X:</span> Deskripsi lengkap gambar
+    </div>
+</div>
+
+Ganti:
+- nama_file_anda.png dengan nama file gambar Anda
+- Deskripsi gambar dengan deskripsi yang sesuai
+- Gambar X dengan nomor urut gambar
+- Deskripsi lengkap gambar dengan penjelasan detail 

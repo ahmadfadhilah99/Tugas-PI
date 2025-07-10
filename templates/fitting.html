@@ -41,9 +41,9 @@
     </style>
 </head>
 <body>
-   <nav class="nav-bar navbar navbar-expand-lg navbar-dark bg-primary px-4">
+   <nav class="nav-bar navbar navbar-expand-lg navbar-dark bg-primary px-4 fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="/">SepedaKu.com</a>
+            <a class="navbar-brand" href="/">SepedaKu</a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
                 <span class="navbar-toggler-icon"></span>
@@ -51,15 +51,15 @@
             
             <div class="collapse navbar-collapse" id="navbarMenu">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link me-3 active" href="/tutorial">Tutorial</a>
-                    </li>
                     <li class="nav-item">
-                        <a class="nav-link me-3" href="/fitting">Fitting</a>
+                        <a class="nav-link me-3" href="/tutorial">Tutorial</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link me-3 active" href="/fitting">Fitting</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/info">About</a>
+                        <a class="nav-link" href="/info">Info</a>
                     </li>
                 </ul>
             </div>
@@ -67,11 +67,12 @@
       </nav>
     
     <div class="main">
-        <div class="container">
+        <div class="container mt-5">
             <br>
+            <h1 class="mb-3 text-center">Fitting Sepeda</h1>
             <div class="card shadow">
                 <div class="card-header">
-                  <h4 class="mb-0">Form Fitting Sepeda Roadbike</h4>
+                  <h4 class="mb-0">Masukkan Data Tubuh Anda</h4>
                 </div>
                 <div class="card-body">
                   <form id="fittingForm">
@@ -93,9 +94,9 @@
                     </div>
                     <div class="mb-3">
                       <label for="bahu" class="form-label">Lebar Bahu (cm)</label>
-                      <input type="number" class="form-control" id="bahu" placeholder="Contoh: 40" required>
+                      <input type="number" class="form-control" id="bahu" placeholder="Contoh: 30" required>
                     </div>
-                    <button type="button" class="btn btn-primary" onclick="kirim()">Rekomendasikan</button>
+                    <button type="button" class="btn btn-primary w-100" onclick="kirim()">Dapatkan Rekomendasi</button>
                   </form>
                 </div>
             </div>

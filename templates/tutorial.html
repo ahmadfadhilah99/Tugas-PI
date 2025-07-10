@@ -38,12 +38,43 @@
       }
     }
 
+    /* Style untuk gambar dengan caption */
+    .image-container {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto 1rem auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .image-container img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 0.5rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .image-caption {
+        text-align: center;
+        font-size: 1rem;
+        margin-top: 0.5rem;
+        color: #444;
+    }
+    @media (max-width: 500px) {
+        .image-container {
+            max-width: 98vw;
+        }
+        .image-caption {
+            font-size: 0.95rem;
+        }
+    }
+
       </style>
 </head>
 <body>
-    <nav class="nav-bar navbar navbar-expand-lg navbar-dark bg-primary px-4">
+    <nav class="nav-bar navbar navbar-expand-lg navbar-dark bg-primary px-4 fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="/">SepedaKu.com</a>
+            <a class="navbar-brand" href="/">SepedaKu</a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
                 <span class="navbar-toggler-icon"></span>
@@ -59,7 +90,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/info">About</a>
+                        <a class="nav-link" href="/info">Info</a>
                     </li>
                 </ul>
             </div>
@@ -67,98 +98,159 @@
       </nav>
     
     <div class="main">
-        <div class="container">
+        <div class="container mt-5">
             <br>
-            <h4 class="mb-0">Tutorial Mengukur</h4>
-            <br>
+            <h1 class="mb-3 text-center">Tutorial</h1>
             <div class="accordion accordion-flush" id="infoAccordion">
                 <div class="accordion-item">
-                <h2 class="accordion-header shadow">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                        Cara Mengukur Tinggi Badan
-                    </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#infoAccordion">
-                    <div class="accordion-body">
-                        1.	Berdirilah tegak, tanpa alas kaki, dengan punggung menempel ke dinding. <br>
-                        2.	Kepala menghadap lurus ke depan (pandangan horisontal).<br>
-                        3.	Letakkan buku datar di atas kepala, dorong perlahan ke dinding.<br>
-                        4.	Ukur jarak dari lantai ke bagian bawah buku.<br>
+                    <h2 class="accordion-header shadow">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAlat">
+                            Peralatan yang dibutuhkan
+                        </button>
+                    </h2>
+                    <div id="collapseAlat" class="accordion-collapse collapse" data-bs-parent="#infoAccordion">
+                        <div class="accordion-body">
+                            1.	Meteran Gulung. <br>
+                            2.	Meteran Jahit. <br>
+                            3.	Buku yang lumayan tebal. <br>
+                            
+                            <!-- Contoh menambahkan gambar baru -->
+                            <div class="image-container">
+                                <img src="{{ url_for('static', filename='img/Alat.png') }}" 
+                                    class="img-fluid rounded shadow-sm" 
+                                    alt="Cara mengukur tinggi badan">
+                                <div class="image-caption">
+                                    <span class="image-number">Gambar 1:</span> Peralatan yang dibutuhkan 
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <br>
-            
-            <div class="accordion-item">
-                <h2 class="accordion-header shadow">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-                        Cara Mengukur Inseam (Panjang Kaki Bagian Dalam)
-                    </button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#infoAccordion">
-                    <div class="accordion-body">
-                        1.	Lepas sepatu, berdiri tegak menyentuh dinding. <br>
-                        2.	Jepit buku keras atau level di antara kaki, hingga menekan perineum (area duduk). <br>
-                        3.	Pastikan buku sejajar lantai (horizontal). <br>
-                        4.	Ukur dari lantai ke atas buku (bagian yang menempel di selangkangan). <br>
-                        
-                        <img src="{{ url_for('static', filename='img/Inseam.png') }}" class="mx-auto d-block" width="300px" alt="">
+                <br>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header shadow">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                            Cara Mengukur Tinggi Badan
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse" data-bs-parent="#infoAccordion">
+                        <div class="accordion-body">
+                            1.	Berdirilah tegak, tanpa alas kaki, dengan punggung menempel ke dinding. <br>
+                            2.	Kepala menghadap lurus ke depan (pandangan horisontal).<br>
+                            3.	Letakkan buku datar di atas kepala, dorong perlahan ke dinding.<br>
+                            4.	Ukur jarak dari lantai ke bagian bawah buku.<br>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <br>
+                <br>
             
-            <div class="accordion-item">
-                <h2 class="accordion-header shadow">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
-                        Cara Mengukur Panjang Lengan
-                    </button>
-                </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#infoAccordion">
-                    <div class="accordion-body">
-                        1.	Rentangkan satu tangan lurus ke samping (horizontal). <br>
-                        2.	Ukur dari ujung tulang bahu (acromion) ke ujung tulang pergelangan tangan (bukan ujung jari).<br>
-                        <img src="{{ url_for('static', filename='img/Lengan.png') }}" class="mx-auto d-block" width="300px" alt="">
+                <div class="accordion-item">
+                    <h2 class="accordion-header shadow">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                            Cara Mengukur Inseam (Panjang Kaki Bagian Dalam)
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#infoAccordion">
+                        <div class="accordion-body">
+                            1.	Lepas sepatu, berdiri tegak menyentuh dinding. <br>
+                            2.	Jepit buku keras atau level di antara kaki, hingga menekan perineum (area duduk). <br>
+                            3.	Pastikan buku sejajar lantai (horizontal). <br>
+                            4.	Ukur dari lantai ke atas buku (bagian yang menempel di selangkangan). <br>
+                            
+                            <div class="image-container">
+                                <img src="{{ url_for('static', filename='img/Inseam.png') }}" 
+                                    class="img-fluid rounded shadow-sm" 
+                                    style="max-width: 400px;" 
+                                    alt="Cara mengukur inseam">
+                                <div class="image-caption">
+                                    <span class="image-number">Gambar 2:</span> Cara mengukur inseam (panjang kaki bagian dalam)
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <br>
-            
-            <div class="accordion-item">
-                <h2 class="accordion-header shadow">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
-                        Cara Mengukur Panjang Torso
-                    </button>
-                </h2>
-                <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#infoAccordion">
-                    <div class="accordion-body">
-                        1.	Duduk tegak di lantai dengan punggung lurus menempel ke dinding.<br>
-                        2.	Ukur dari bagian atas tulang selangka (sternal notch) hingga permukaan duduk. <br>
-                        3.	Gunakan meteran yang fleksibel atau ukur bagian belakang dengan bantuan orang lain.<br>                        
+                <br>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header shadow">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                            Cara Mengukur Panjang Lengan
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#infoAccordion">
+                        <div class="accordion-body">
+                            1.	Rentangkan satu tangan lurus ke samping (horizontal). <br>
+                            2.	Ukur dari ujung tulang bahu (acromion) ke ujung tulang pergelangan tangan (bukan ujung jari).<br>
+                            
+                            <div class="image-container">
+                                <img src="{{ url_for('static', filename='img/Lengan.png') }}" 
+                                    class="img-fluid rounded shadow-sm" 
+                                    style="max-width: 400px;" 
+                                    alt="Cara mengukur panjang lengan">
+                                <div class="image-caption">
+                                    <span class="image-number">Gambar 3:</span> Cara mengukur panjang lengan
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <br>
-            
-            <div class="accordion-item">
-                <h2 class="accordion-header shadow">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive">
-                        Cara Mengukur Lebar Bahu
-                    </button>
-                </h2>
-                <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#infoAccordion">
-                    <div class="accordion-body">
-                        1.	Ukur dari titik tulang bahu kiri ke kanan (acromion ke acromion).<br>
-                        2.	Pastikan lengan relaks dan tidak terlalu membuka dada.<br>                        
-                        
-                        <img src="{{ url_for('static', filename='img/Bahu.png') }}" class="mx-auto d-block" width="300px" alt="">
+                <br>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header shadow">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                            Cara Mengukur Panjang Torso
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#infoAccordion">
+                        <div class="accordion-body">
+                            1.	Berdiri tegak dengan posisi tubuh rileks dan pandangan lurus ke depan.<br>
+                            2.	Letakkan ujung meteran fleksibel di titik tertinggi bahu (dekat leher).<br>
+                            3.	Tarik meteran mengikuti lekuk tubuh bagian depan, melewati dada, perut, hingga ke titik di antara kedua kaki (selangkangan).<br>
+                            4.	Pastikan meteran menempel pada tubuh dan tidak melengkung keluar.<br>
+                            5.	Catat hasil pengukuran dari bahu hingga ke titik bawah selangkangan.<br>
+
+                            <div class="image-container">
+                                <img src="{{ url_for('static', filename='img/torso.png') }}" 
+                                    class="img-fluid rounded shadow-sm" 
+                                    style="max-width: 400px;" 
+                                    alt="Cara mengukur panjang torso">
+                                <div class="image-caption">
+                                    <span class="image-number">Gambar 4:</span> Cara mengukur panjang torso
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <br>
-            <br>
-            <br>
-            
+                <br>
+                
+                <div class="accordion-item">
+                    <h2 class="accordion-header shadow">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive">
+                            Cara Mengukur Lebar Bahu
+                        </button>
+                    </h2>
+                    <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#infoAccordion">
+                        <div class="accordion-body">
+                            1.	Ukur dari titik tulang bahu kiri ke kanan (acromion ke acromion).<br>
+                            2.	Pastikan lengan relaks dan tidak terlalu membuka dada.<br>                        
+                            
+                            <div class="image-container">
+                                <img src="{{ url_for('static', filename='img/Bahu.png') }}" 
+                                    class="img-fluid rounded shadow-sm" 
+                                    style="max-width: 400px;" 
+                                    alt="Cara mengukur lebar bahu">
+                                <div class="image-caption">
+                                    <span class="image-number">Gambar 5:</span> Cara mengukur lebar bahu
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <br>
         </div>
     </div>
 

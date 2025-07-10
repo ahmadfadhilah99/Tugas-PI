@@ -23,12 +23,31 @@
     .fade-out {
         opacity: 0;
     }
+    .splash-title {
+        opacity: 0;
+        transform: scale(0.7);
+        animation: splash-pop 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0.5s forwards;
+    }
+    @keyframes splash-pop {
+        0% {
+            opacity: 0;
+            transform: scale(0.7);
+        }
+        60% {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
       </style>
 </head>
 <body>
     <div id="splash" class="d-flex justify-content-center align-items-center bg-primary text-white">
         <div class="text-center ">
-          <h1 class="display-4 fw-semibold">SepedaKu.com</h1>
+          <h1 class="display-4 fw-semibold splash-title">SepedaKu</h1>
         </div>
     </div>
 
@@ -44,17 +63,7 @@
           </div>
         </div>
     </div>
-
-
-      <!-- Bottom Bar untuk Mobile -->
-    <nav class="bottom-bar navbar bg-primary text-white" >
-        <a class="nav-link text-center active" href="#">
-        <i class="bi bi-house-fill"></i><br>Beranda
-        </a>
-        <a class="nav-link text-center" href="#">
-        <i class="bi bi-person-fill"></i><br>Profil
-        </a>
-    </nav>            
+   
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
