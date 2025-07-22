@@ -1,30 +1,19 @@
 from flask import Flask, request, render_template, jsonify
-from flask_cors import CORS 
 import joblib
 import numpy as np
 import pandas as pd
+from datetime import datetime
+import csv
+import os
 
 
 app = Flask(__name__)
-CORS(app)
-
 model = joblib.load('models/bike_fitting_model.pkl')
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
-@app.route('/tutorial')
-def tutorial():
-    return render_template('tutorial.html')
-
-@app.route('/fitting')
-def fitting():
-    return render_template('fitting.html')
-
-@app.route('/info')
-def info():
-    return render_template('info.html')
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -51,6 +40,25 @@ def predict():
             'Stem': round(stem_mm, 0),
             'Handlebar': round(handlebar_mm, 0)
         }
+        data_input = {
+            "tinggi": data['tinggi'],
+            "inseam": data['inseam'],
+            "lengan": data['lengan'],
+            "torso": data['torso'],
+            "bahu": data['bahu']
+        }
+        row = {
+            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            **data_input,
+            **output
+        }
+        file_path = 'dataset/riwayat_rekomendasi.csv'
+        file_exists = os.path.isfile(file_path)
+        with open(file_path, 'a', newline='') as csvfile:
+            writer = csv.DictWriter(csvfile, fieldnames=row.keys())
+            if not file_exists:
+                writer.writeheader()
+            writer.writerow(row)
         return jsonify(output)
     except Exception as e:
         return jsonify({'error': str(e)}), 500

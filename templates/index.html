@@ -1,83 +1,497 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SepedaKu</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>    
-    html, body {
-        height: 100%;
-        margin: 0;
-        overflow: hidden;
-    }
-    #splash {
-        transition: opacity 1s ease;
-        height: 100vh;
-        width: 100vw;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 9999;  
-    }
-    .fade-out {
-        opacity: 0;
-    }
-    .splash-title {
-        opacity: 0;
-        transform: scale(0.7);
-        animation: splash-pop 1.2s cubic-bezier(0.23, 1, 0.32, 1) 0.5s forwards;
-    }
-    @keyframes splash-pop {
-        0% {
-            opacity: 0;
-            transform: scale(0.7);
-        }
-        60% {
-            opacity: 1;
-            transform: scale(1.1);
-        }
-        100% {
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
-      </style>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+    <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
-    <div id="splash" class="d-flex justify-content-center align-items-center bg-primary text-white">
+    <!-- <div id="splash" class="d-flex justify-content-center align-items-center text-white">
         <div class="text-center ">
           <h1 class="display-4 fw-semibold splash-title">SepedaKu</h1>
         </div>
-    </div>
+    </div> -->
+
+    <!-- Navbar Bootstrap 5 Responsive -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-transparent">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#beranda">SepedaKu</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
+          <ul class="navbar-nav mb-2 mb-lg-0 gap-lg-3">
+            <li class="nav-item">
+              <a class="nav-link fw-semibold" href="#beranda">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-semibold" href="#panduan">Panduan</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-semibold" href="#fitting">Fitting</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-semibold" href="#tentang">Tentang</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section (Section 1) -->
+    <section class="section1" id="beranda">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-title">Bingung Pilih Ukuran Sepeda?</div>
+            <div class="hero-subtitle">Yuk, coba fitur fitting sepeda secara online dengan kami!</div>
+            <a href="#panduan" class="btn btn-warning btn-lg fw-semibold shadow">Yuk Mulai!</a>
+        </div>
+    </section>
+
+    <!-- Section Tutorial (Section 2) -->
+    <section class="section2 py-5" id="panduan">
+        <div class="container" style="padding: 2rem 0;">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Panduan</h2>
+                <div class="section-underline"></div>
+                <p class="section-subtitle">Yuk ikuti panduan mengukur tinggi badan, inseam, dan lainnya biar ukuran sepeda kamu pas!</p>
+            </div>
+            <div class="accordion accordion-flush" id="accordionTutorial">
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAlatLanding">
+                            Apa Saja yang Perlu Disiapkan?
+                        </button>
+                    </h2>
+                    <div id="collapseAlatLanding" class="accordion-collapse collapse" data-bs-parent="#accordionTutorial">
+                        <div class="accordion-body">
+                            1. Meteran Gulung.<br>
+                            2. Meteran Jahit.<br>
+                            3. Isolasi <br>
+                            4. Buku yang lumayan tebal untuk pengukuran.<br>
+                            5. Buku atau kertas untuk mencatat.<br> 
+                            6. Minta bantuan teman atau keluarga untuk memastikan hasil pengukuran lebih akurat.<br> 
+                            <img src="../static/img/tools.png" alt="tools" class="tools-img" >
+                            <div class="video-caption" >
+                                Peralatan yang perlu disiapkan
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTinggiLanding">
+                            Cara Mengukur Tinggi Badan
+                        </button>
+                    </h2>
+                    <div id="collapseTinggiLanding" class="accordion-collapse collapse" data-bs-parent="#accordionTutorial">
+                        <div class="accordion-body">
+                            1. Berdiri tegak tanpa alas kaki.<br>
+                            2. Kepala menghadap lurus ke depan.<br>
+                            3. Letakkan buku datar di atas kepala.<br>
+                            4. Ukur dari lantai ke bagian bawah buku.<br>
+                            5. Catat hasil pengukuran.<br>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInseamLanding">
+                            Cara Mengukur Inseam (Panjang Kaki Bagian Dalam)
+                        </button>
+                    </h2>
+                    <div id="collapseInseamLanding" class="accordion-collapse collapse" data-bs-parent="#accordionTutorial">
+                        <div class="accordion-body">
+                            1. Lepas sepatu, berdiri tegak.<br>
+                            2. Jepit buku keras di antara kaki.<br>
+                            3. Pastikan buku sejajar lantai.<br>
+                            4. Beri tanda pada ujung buku <br>
+                            5. Ukur dari lantai ke atas buku.<br>
+                            6. Catat hasil pengukuran.<br>
+                            <video 
+                                src="../static/video/inseam.mp4" 
+                                autoplay 
+                                muted 
+                                loop 
+                                playsinline 
+                                class="video-portrait"
+                            ></video>
+                            <div class="video-caption" >
+                                Contoh cara mengukur inseam secara mandiri
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLenganLanding">
+                            Cara Mengukur Panjang Lengan
+                        </button>
+                    </h2>
+                    <div id="collapseLenganLanding" class="accordion-collapse collapse" data-bs-parent="#accordionTutorial">
+                        <div class="accordion-body">
+                            1. Rentangkan tangan lurus ke samping.<br>
+                            2. Gunakan isolasi pada ujung meteran jahit (jika dilakukan secara mandiri).<br>
+                            3. Ukur dari ujung tulang bahu.<br>
+                            4. Sampai ujung tulang pergelangan tangan.<br>
+                            5. Catat hasil pengukuran.<br>
+                            <video 
+                                src="../static/video/lengan.mp4" 
+                                autoplay 
+                                muted 
+                                loop 
+                                playsinline 
+                                class="video-landscape"
+                            ></video>
+                            <div class="video-caption" >
+                                Contoh cara mengukur panjang lengan secara mandiri
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTorsoLanding">
+                            Cara Mengukur Panjang Torso
+                        </button>
+                    </h2>
+                    <div id="collapseTorsoLanding" class="accordion-collapse collapse" data-bs-parent="#accordionTutorial">
+                        <div class="accordion-body">
+                            1. Berdiri tegak dengan posisi rileks.<br>
+                            2. Letakkan meteran di titik tertinggi bahu.<br>
+                            3. Tarik meteran mengikuti lekuk tubuh.<br>
+                            4. Sampai ke titik di antara kedua kaki.<br>
+                            5. Catat hasil pengukuran.<br>
+                            <video 
+                                src="../static/video/torso.mp4" 
+                                autoplay 
+                                muted 
+                                loop 
+                                playsinline 
+                                class="video-portrait"
+                            ></video>
+                            <div class="video-caption" >
+                                Contoh cara mengukur panjang torso secara mandiri
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBahuLanding">
+                            Cara Mengukur Lebar Bahu
+                        </button>
+                    </h2>
+                    <div id="collapseBahuLanding" class="accordion-collapse collapse" data-bs-parent="#accordionTutorial">
+                        <div class="accordion-body">
+                            1. Ukur dari titik tulang bahu kiri ke kanan.<br>
+                            2. Pastikan lengan relaks.<br>
+                            3. Tidak terlalu membuka dada.<br>
+                            4. Catat hasil pengukuran.<br>
+                            <video 
+                                src="../static/video/bahu.mp4" 
+                                autoplay 
+                                muted 
+                                loop 
+                                playsinline 
+                                class="video-landscape"
+                            ></video>
+                            <div class="video-caption" >
+                                Contoh cara mengukur lebar bahu secara mandiri
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Bikes (Section 3) -->
+    <section class="section3">
+        <div class="container">
+            <div class="row align-items-center flex-md-row flex-column-reverse flex-sm-column section3-row">
+                <div class="col-md-6 text-center mb-4 mb-md-0 order-1 order-md-1 section3-img-col">
+                    <img src="static/img/section2.3.png" alt="Bikes Online" class="img-fluid rounded shadow-sm section3-img" style="max-width:100%; height:auto;">
+                </div>
+                <div class="col-md-6 d-flex flex-column align-items-center align-items-md-start order-2 order-md-2 section3-text-col">
+                    <div class="bikes-title text-center text-md-start">Biar Sepeda Kamu Bukan Cuma Keren, Tapi Juga Nyaman</div>
+                    <div class="bikes-desc text-center text-md-start mb-3">Aplikasi ini nggak cuma tebak-tebakan. Dengan bantuan algoritma Decision Tree, kami bantu kamu dapetin ukuran sepeda yang cocok, supaya kamu bisa lebih betah dan nggak salah beli.</div>
+                    <a href="#fitting" class="btn btn-warning btn-lg fw-semibold shadow rounded-3 mt-2 section3-btn" style="width:100%; max-width:300px;">Yuk Coba Fitting!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Fitting (Section 4)  -->
+    <section class="section4 py-5" id="fitting">
+        <div class="container" style="padding: 2rem 0;">
+            <div class="text-center mb-5">
+                <h2 class="section-title">Fitting Sepeda Road Bike</h2>
+                <div class="section-underline"></div>
+                <p class="section-subtitle">Bingung ukuran sepeda? Yuk isi datamu dan dapatkan rekomendasi yang pas dalam hitungan detik!</p>
+            </div>
+            
+            <div class="fitting-container">
+                <div class="row">
+                    <!-- Form Container -->
+                    <div class="col-lg-5 col-md-12 mb-4">
+                        <div class="form-container">
+                            <h4 class="form-title mb-4 text-center">Masukkan Data Tubuh</h4>
+                            <form id="fittingForm">
+                                <div class="mb-3">
+                                    <label for="tinggi" class="form-label fw-semibold">Tinggi Badan (cm)</label>
+                                    <div id="tinggiNote" class="form-text">Tinggi badan: 120–200 cm</div>
+                                    <input type="number" class="form-control form-control-lg rounded-3 input-flat" id="tinggi" aria-describedby="tinggiNote" min="120" max="250" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="inseam" class="form-label fw-semibold">Inseam / Panjang Selangkangan (cm)</label>
+                                    <div id="inseamNote" class="form-text">Inseam: 60–110 cm</div>
+                                    <input type="number" class="form-control form-control-lg rounded-3 input-flat" id="inseam" aria-describedby="inseamNote" min="60" max="110" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="lengan" class="form-label fw-semibold">Panjang Lengan (cm)</label>
+                                    <div id="lenganNote" class="form-text">Panjang lengan: 50–80 cm</div>
+                                    <input type="number" class="form-control form-control-lg rounded-3 input-flat" id="lengan" aria-describedby="lenganNote" min="50" max="80" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="torso" class="form-label fw-semibold">Panjang Torso (cm)</label>
+                                    <div id="torsoNote" class="form-text">Panjang torso: 40–80 cm</div>
+                                    <input type="number" class="form-control form-control-lg rounded-3 input-flat" id="torso" aria-describedby="torsoNote" min="40" max="80" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label for="bahu" class="form-label fw-semibold">Lebar Bahu (cm)</label>
+                                    <div id="bahuNote" class="form-text">Lebar bahu: 30–60 cm</div>
+                                    <input type="number" class="form-control form-control-lg rounded-3 input-flat" id="bahu" aria-describedby="bahuNote" min="30" max="60" required>
+                                </div>
+                                <button type="button" class="btn btn-warning w-100 fw-bold shadow-sm rounded-pill py-3" onclick="kirim()">
+                                    Mulai Fitting
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Result Container -->
+                    <div class="col-lg-7 col-md-12">
+                        <div class="result-container" id="resultContainer">
+                            <!-- Initial State -->
+                            <div id="initialState" class="text-center">
+                                <i class="bi bi-bicycle" style="font-size: 4rem; color: #ddd; margin-bottom: 1rem;"></i>
+                                <h5 class="text-muted">Hasil rekomendasi akan muncul di sini</h5>
+                                <p class="text-muted">Silakan isi form di sebelah kiri dan klik "Dapatkan Rekomendasi"</p>
+                            </div>
+                            
+                            <!-- Loading State -->
+                            <div id="loadingState" class="loading-container" style="display: none;">
+                                <div class="spinner"></div>
+                                <h5>Menghitung rekomendasi...</h5>
+                                <p class="text-muted">Mohon tunggu sebentar</p>
+                            </div>
+                            
+                            <!-- Result State -->
+                            <div id="resultState" style="display: none; width: 100%;">
+                                <h4 class="mb-3 text-center" id="result">Hasil Rekomendasi</h4>
+                                
+                                <!-- Catatan di atas -->
+                                <div class="alert alert-warning mb-4" role="alert" style="font-size: 0.85rem; padding: 0.75rem;">
+                                    <strong>Catatan:</strong> Hasil rekomendasi ini dihasilkan oleh sistem otomatis dan bisa saja tidak 100% akurat. Silakan konsultasikan ke ahli fitting sepeda untuk hasil terbaik.
+                                </div>
+                                
+                                <!-- Print Button -->
+                                <div class="text-center mb-4">
+                                    <button type="button" class="btn btn-outline-primary btn-sm" onclick="printResults()">
+                                        <i class="bi bi-printer me-2"></i>Cetak Hasil
+                                    </button>
+                                </div>
+                                
+                                <!-- Results Cards -->
+                                <div class="row mb-4" id="result-cards">
+                                    <div class="col-md-6 mb-3">
+                                        <div class="card border-0 shadow-sm">
+                                            <div class="card-body text-center">
+                                                <h6 class="text-muted">Frame Size</h6>
+                                                <h4 class="text-primary" id="frameSize">-</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <div class="card border-0 shadow-sm">
+                                            <div class="card-body text-center">
+                                                <h6 class="text-muted">Saddle Height</h6>
+                                                <h4 class="text-success" id="saddleHeight">-</h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card border-0 shadow-sm">
+                                            <div class="card-body text-center">
+                                                <h6 class="text-muted">Crank Length</h6>
+                                                <h5 class="text-info" id="crankSize">-</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card border-0 shadow-sm">
+                                            <div class="card-body text-center">
+                                                <h6 class="text-muted">Stem Length</h6>
+                                                <h5 class="text-warning" id="stemSize">-</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <div class="card border-0 shadow-sm">
+                                            <div class="card-body text-center">
+                                                <h6 class="text-muted">Handlebar Width</h6>
+                                                <h5 class="text-danger" id="handlebarSize">-</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Visualisasi Sepeda -->
+                                <div class="text-center" id="result-visualisasi">
+                                    <h6 class="text-muted mb-3">Visualisasi Komponen Sepeda</h6>
+                                    <div style="max-width: 100%; overflow-x: auto;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1440 810" style="width: 100%; height: auto;"  preserveAspectRatio="xMidYMid meet" version="1.0">
+                                            <defs><clipPath id="50b83e8639"><path d="M 129 292 L 1311.878906 292 L 1311.878906 757.613281 L 129 757.613281 Z M 129 292 " clip-rule="nonzero"/></clipPath><clipPath id="910c06de76"><path d="M 399 51.742188 L 1168 51.742188 L 1168 626 L 399 626 Z M 399 51.742188 " clip-rule="nonzero"/></clipPath></defs><path fill="#313444" d="M 365.890625 518.363281 L 568.902344 518.363281 L 568.902344 522.851562 L 372.214844 522.851562 L 554.460938 598.660156 L 552.738281 602.808594 L 363.832031 524.230469 L 506.402344 666.847656 L 503.226562 670.023438 L 365.867188 532.621094 L 439.757812 711.761719 L 435.609375 713.476562 L 362.007812 535.035156 L 362.007812 730.675781 L 357.519531 730.675781 L 357.519531 533.402344 L 281.9375 715.238281 L 277.792969 713.511719 L 356.535156 524.070312 L 210.027344 670.628906 L 206.855469 667.453125 L 348.875 525.386719 L 164.648438 601.429688 L 162.9375 597.277344 L 343.242188 522.855469 L 152.347656 522.855469 L 152.347656 518.367188 L 349.722656 518.367188 L 168.109375 442.820312 L 169.832031 438.675781 L 344.640625 511.382812 L 208.679688 375.375 L 211.855469 372.203125 L 353.136719 513.535156 L 276.726562 328.28125 L 280.875 326.566406 L 357.515625 512.378906 L 357.515625 313.984375 L 362.007812 313.984375 L 362.007812 510.910156 L 437.722656 328.757812 L 441.867188 330.480469 L 369.375 504.875 L 501.398438 372.804688 L 504.574219 375.984375 L 367.953125 512.652344 L 547.996094 438.339844 L 549.707031 442.484375 Z M 1295.5 524.992188 L 1092.488281 524.992188 L 1276.308594 449.117188 L 1274.597656 444.964844 L 1094.554688 519.28125 L 1231.171875 382.613281 L 1228 379.4375 L 1095.976562 511.503906 L 1168.464844 337.113281 L 1164.320312 335.386719 L 1088.605469 517.539062 L 1088.605469 320.609375 L 1084.113281 320.609375 L 1084.113281 519.007812 L 1007.476562 333.195312 L 1003.324219 334.910156 L 1079.738281 520.164062 L 938.453125 378.832031 L 935.277344 382.007812 L 1071.238281 518.011719 L 896.433594 445.300781 L 894.707031 449.445312 L 1076.320312 524.992188 L 878.945312 524.992188 L 878.945312 529.484375 L 1069.832031 529.484375 L 889.53125 603.902344 L 891.246094 608.058594 L 1075.46875 532.011719 L 933.449219 674.082031 L 936.625 677.261719 L 1083.132812 530.703125 L 1004.386719 720.144531 L 1008.53125 721.867188 L 1084.113281 540.03125 L 1084.113281 737.304688 L 1088.605469 737.304688 L 1088.605469 541.667969 L 1162.207031 720.101562 L 1166.355469 718.390625 L 1092.464844 539.25 L 1229.824219 676.652344 L 1232.996094 673.476562 L 1090.429688 530.859375 L 1279.332031 609.433594 L 1281.054688 605.285156 L 1098.808594 529.480469 L 1295.5 529.480469 Z M 1295.5 524.992188 " fill-opacity="1" fill-rule="nonzero"/><g clip-path="url(#50b83e8639)"><path fill="#484c70" d="M 362.007812 292.417969 C 233.792969 292.417969 129.484375 396.765625 129.484375 525.023438 C 129.484375 653.285156 233.792969 757.632812 362.007812 757.632812 C 490.222656 757.632812 594.535156 653.285156 594.535156 525.023438 C 594.535156 396.765625 490.226562 292.417969 362.007812 292.417969 Z M 362.007812 714.605469 C 257.511719 714.605469 172.492188 629.5625 172.492188 525.023438 C 172.492188 420.488281 257.507812 335.445312 362.007812 335.445312 C 466.507812 335.445312 551.523438 420.488281 551.523438 525.023438 C 551.523438 629.558594 466.507812 714.605469 362.007812 714.605469 Z M 1078.5625 292.417969 C 950.347656 292.417969 846.039062 396.765625 846.039062 525.023438 C 846.039062 653.285156 950.347656 757.632812 1078.5625 757.632812 C 1206.777344 757.632812 1311.089844 653.285156 1311.089844 525.023438 C 1311.089844 396.765625 1206.777344 292.417969 1078.5625 292.417969 Z M 1078.5625 714.605469 C 974.0625 714.605469 889.046875 629.5625 889.046875 525.023438 C 889.046875 420.488281 974.0625 335.445312 1078.5625 335.445312 C 1183.0625 335.445312 1268.078125 420.488281 1268.078125 525.023438 C 1268.078125 629.558594 1183.0625 714.605469 1078.5625 714.605469 Z M 1078.5625 714.605469 " fill-opacity="1" fill-rule="nonzero"/></g><path fill="#313444" d="M 1133.859375 241.472656 C 1127.074219 257.433594 1120.449219 243.019531 1120.449219 243.019531 L 1107.191406 164.265625 L 1081.570312 169.574219 C 1086.449219 191.582031 1073.90625 217.105469 1052.449219 235.253906 C 1024.75 258.671875 966.375 253.207031 955.441406 242.929688 C 944.503906 232.652344 958.203125 219.109375 958.203125 219.109375 C 958.203125 219.109375 1025.449219 240.527344 1048.886719 200.664062 C 1072.324219 160.796875 1028.085938 154.402344 1028.085938 154.402344 C 1028.0625 155.179688 1028.035156 155.816406 1028 156.253906 C 1027.652344 160.628906 1021.960938 161.761719 1021.960938 161.761719 C 1021.960938 161.761719 985.117188 162.359375 974.480469 162.011719 C 963.847656 161.660156 964.550781 159.179688 964.550781 159.179688 L 962.835938 129.910156 C 962.613281 126.195312 969.085938 126.023438 969.085938 126.023438 C 969.085938 126.023438 1006.363281 125.472656 1017.527344 125.527344 C 1028.699219 125.578125 1027.871094 128.476562 1027.871094 128.476562 C 1027.871094 128.476562 1027.878906 128.792969 1027.886719 129.34375 C 1038.035156 130.148438 1057.273438 133.933594 1071.566406 150.222656 L 1103.679688 143.386719 C 1112.941406 131.269531 1123.46875 141.425781 1123.46875 141.425781 Z M 1133.859375 241.472656 " fill-opacity="1" fill-rule="nonzero"/><path fill="#e04632" d="M 1073.804688 542.234375 L 962.785156 250.417969 L 695.054688 564.84375 L 674.878906 547.652344 L 948.441406 226.378906 L 588.972656 273.148438 L 648.792969 522.777344 L 623.023438 528.957031 L 577.171875 337.625 L 381.734375 514.214844 L 643.253906 546.355469 L 640.003906 572.835938 L 357.519531 538.117188 L 358.070312 533.621094 L 341.175781 514.917969 L 570.089844 308.074219 L 523.261719 112.667969 L 549.035156 106.488281 L 580.503906 237.800781 L 940.183594 191.007812 L 934.988281 177.351562 C 934.988281 177.351562 920 149.835938 943.800781 142.953125 C 967.597656 136.066406 977.347656 132.914062 977.347656 132.914062 L 984.804688 156.433594 L 961.863281 164.175781 C 961.863281 164.175781 959.214844 166.019531 961.808594 172.851562 L 1098.730469 532.746094 Z M 1073.804688 542.234375 " fill-opacity="1" fill-rule="nonzero"/><path fill="#484c70" d="M 685.320312 511.671875 C 685 515.71875 681.453125 518.742188 677.40625 518.417969 L 367.957031 493.875 C 363.910156 493.546875 360.886719 490.007812 361.207031 485.957031 C 361.527344 481.902344 365.070312 478.878906 369.121094 479.203125 L 678.570312 503.753906 C 682.617188 504.078125 685.640625 507.617188 685.320312 511.671875 Z M 654.980469 633 L 358.210938 541.917969 C 354.328125 540.730469 350.214844 542.910156 349.023438 546.792969 C 347.832031 550.679688 350.015625 554.796875 353.898438 555.988281 L 650.667969 647.066406 C 654.550781 648.257812 658.664062 646.074219 659.855469 642.195312 C 661.046875 638.304688 658.863281 634.191406 654.980469 633 Z M 654.980469 633 " fill-opacity="1" fill-rule="nonzero"/><path fill="#484c70" d="M 1128.75 521.78125 C 1128.75 549.96875 1105.882812 572.828125 1077.707031 572.828125 C 1049.523438 572.828125 1026.660156 549.96875 1026.660156 521.78125 C 1026.660156 520.078125 1026.746094 518.375 1026.902344 516.703125 C 1029.449219 490.890625 1051.230469 470.722656 1077.707031 470.722656 C 1104.179688 470.722656 1125.960938 490.890625 1128.507812 516.703125 C 1128.664062 518.375 1128.75 520.078125 1128.75 521.78125 Z M 362.007812 470.082031 C 333.929688 470.082031 311.136719 492.765625 310.964844 520.816406 L 310.964844 521.125 C 310.964844 549.332031 333.828125 572.1875 362.007812 572.1875 C 390.1875 572.1875 413.054688 549.332031 413.054688 521.125 C 413.054688 517.992188 412.777344 514.929688 412.226562 511.957031 C 407.910156 488.132812 387.058594 470.082031 362.007812 470.082031 Z M 362.007812 470.082031 " fill-opacity="1" fill-rule="nonzero"/><path fill="#9dedeb" d="M 412.226562 511.957031 C 412.054688 540.007812 389.261719 562.691406 361.183594 562.691406 C 336.136719 562.691406 315.28125 544.636719 310.964844 520.820312 C 311.136719 492.765625 333.929688 470.085938 362.007812 470.085938 C 387.058594 470.082031 407.910156 488.132812 412.226562 511.957031 Z M 1077.707031 470.722656 C 1051.230469 470.722656 1029.449219 490.890625 1026.902344 516.703125 C 1029.449219 542.519531 1051.230469 562.691406 1077.707031 562.691406 C 1104.179688 562.691406 1125.960938 542.519531 1128.507812 516.703125 C 1125.960938 490.890625 1104.179688 470.722656 1077.707031 470.722656 Z M 665.949219 505.820312 C 626.867188 505.820312 595.179688 537.515625 595.179688 576.613281 C 595.179688 615.710938 626.863281 647.40625 665.949219 647.40625 C 705.035156 647.40625 736.722656 615.710938 736.722656 576.613281 C 736.722656 537.515625 705.035156 505.820312 665.949219 505.820312 Z M 665.949219 505.820312 " fill-opacity="1" fill-rule="nonzero"/><path fill="#484c70" d="M 665.441406 502.183594 C 624.253906 502.183594 590.875 535.566406 590.875 576.75 C 590.875 617.933594 624.253906 651.324219 665.441406 651.324219 C 706.609375 651.324219 739.988281 617.933594 739.988281 576.75 C 739.988281 535.566406 706.609375 502.183594 665.441406 502.183594 Z M 665.441406 638.417969 C 631.375 638.417969 603.78125 610.808594 603.78125 576.75 C 603.78125 542.691406 631.375 515.089844 665.441406 515.089844 C 699.488281 515.089844 727.082031 542.6875 727.082031 576.75 C 727.082031 610.804688 699.488281 638.417969 665.441406 638.417969 Z M 665.441406 638.417969 " fill-opacity="1" fill-rule="nonzero"/><path fill="#e04632" d="M 783.191406 586.71875 C 782.453125 593.898438 776.027344 599.121094 768.851562 598.378906 L 674.488281 588.621094 C 667.308594 587.878906 662.085938 581.457031 662.832031 574.273438 C 663.570312 567.09375 669.996094 561.871094 677.171875 562.617188 L 771.535156 572.371094 C 778.714844 573.113281 783.933594 579.539062 783.191406 586.71875 Z M 783.191406 586.71875 " fill-opacity="1" fill-rule="nonzero"/><g clip-path="url(#910c06de76)"><path fill="#484c70" d="M 815.996094 558.523438 C 817.574219 561.503906 818.539062 565.445312 818.421875 570.640625 L 763.777344 625.300781 C 763.214844 625.40625 762.644531 625.441406 762.0625 625.492188 L 761.714844 625.128906 C 757.261719 624.855469 753.816406 623.824219 751.167969 622.34375 C 743.273438 617.9375 742.410156 609.609375 742.460938 605.890625 L 742.410156 605.824219 C 742.515625 605.167969 742.621094 604.511719 742.722656 603.84375 L 750.117188 596.445312 L 674.488281 588.625 C 674.488281 588.625 659.714844 586.820312 662.835938 574.277344 C 662.835938 574.277344 671.6875 584.105469 697.492188 584.105469 L 755.855469 590.707031 L 797.140625 549.40625 C 797.140625 549.402344 810.402344 547.960938 815.996094 558.523438 Z M 558.136719 113.695312 L 554.339844 97.863281 C 585.59375 89.6875 611.78125 81.429688 611.78125 81.429688 C 611.78125 81.429688 621.242188 77.125 618.660156 68.089844 C 618.660156 68.089844 619.089844 56.902344 592.425781 58.625 C 565.757812 60.347656 440.597656 51.742188 440.597656 51.742188 C 440.597656 51.742188 423.824219 54.011719 428.125 64.648438 C 428.125 64.648438 444.039062 118.859375 491.78125 111.546875 C 498.378906 110.539062 505.449219 109.226562 512.726562 107.726562 L 516.5625 122.589844 C 516.5625 122.589844 519.628906 122.933594 524.613281 122.703125 L 569.699219 308.789062 C 560.394531 322.265625 560.136719 333.609375 561.589844 340.773438 L 561.582031 340.773438 L 399.355469 486.980469 L 404.5625 493.589844 L 413.050781 485.921875 L 413.050781 488.300781 L 577.382812 340.507812 L 621.289062 521.710938 L 625.613281 518.449219 L 531.773438 122.046875 C 539.199219 121.035156 548.578125 118.738281 558.136719 113.695312 Z M 1130.175781 99.929688 C 1130.175781 99.929688 1117.273438 93.042969 1111.683594 107.242188 L 1082.671875 122.628906 C 1064.464844 110.878906 1044.925781 112.519531 1034.945312 114.527344 C 1034.789062 114.003906 1034.695312 113.695312 1034.695312 113.695312 C 1034.695312 113.695312 1034.695312 110.6875 1023.941406 113.695312 C 1013.1875 116.707031 977.488281 127.464844 977.488281 127.464844 C 977.488281 127.464844 971.3125 129.402344 972.542969 132.914062 L 982.222656 160.59375 C 982.222656 160.59375 982.222656 163.175781 992.546875 160.59375 C 1002.867188 158.011719 1038.136719 147.328125 1038.136719 147.328125 C 1038.136719 147.328125 1043.292969 144.675781 1042.4375 140.371094 C 1042.351562 139.941406 1042.199219 139.324219 1042.007812 138.570312 C 1042.007812 138.570312 1086.308594 132.585938 1074.691406 177.351562 C 1063.078125 222.117188 992.546875 219.96875 992.546875 219.96875 C 992.546875 219.96875 983.082031 236.746094 996.414062 243.628906 C 1009.746094 250.515625 1067.378906 239.757812 1087.597656 209.640625 C 1103.257812 186.300781 1108.324219 158.316406 1097.605469 138.488281 L 1120.785156 126.359375 L 1155.128906 198.453125 C 1155.128906 198.453125 1165.449219 210.5 1167.597656 193.289062 Z M 937.488281 145.777344 C 937.488281 145.777344 919.28125 150.574219 940.183594 191.011719 L 952.390625 222.394531 L 952.175781 222.527344 L 950.042969 216.929688 L 614.640625 260.25 L 588.621094 236.75 L 580.503906 237.804688 L 586.746094 263.855469 L 588.972656 273.148438 L 623.890625 268.609375 L 948.4375 226.378906 L 919.050781 260.890625 C 919.050781 260.890625 919.980469 271.148438 929.210938 276.269531 L 712.976562 528.953125 L 724.082031 530.746094 L 943.507812 273.164062 L 961.789062 252.085938 L 1049.816406 479.175781 L 1055.648438 475.71875 L 937.488281 170.488281 C 937.488281 170.488281 931.46875 151.609375 937.488281 145.777344 Z M 406.652344 546.523438 L 595.179688 570.335938 L 597.15625 560.015625 L 410.429688 537.917969 Z M 406.652344 546.523438 " fill-opacity="1" fill-rule="nonzero"/></g><path fill="#313444" d="M 515.152344 117.140625 L 512.726562 107.722656 L 554.339844 97.863281 L 555.519531 102.792969 C 555.519531 102.792969 526.078125 117.714844 515.152344 117.140625 Z M 539.429688 374.640625 L 507.730469 403.148438 L 511.683594 408.277344 L 549.820312 388.894531 C 549.820312 386.433594 539.429688 374.640625 539.429688 374.640625 Z M 525.738281 622.339844 L 567.886719 634.015625 L 573.03125 623.242188 L 532.058594 610.667969 Z M 544.660156 578.65625 L 586.03125 583.816406 L 589.964844 570.335938 L 547.847656 564.359375 Z M 551.84375 518.445312 L 593.980469 516.988281 L 593.980469 511.640625 L 551.84375 508.460938 Z M 985.203125 312.476562 L 965.019531 323.230469 L 989.289062 357.21875 L 1000.597656 352.195312 Z M 780.242188 593.71875 L 778.382812 595.546875 L 751.167969 622.339844 C 753.816406 623.820312 757.261719 624.855469 761.714844 625.128906 L 762.058594 625.488281 C 762.644531 625.4375 763.210938 625.40625 763.777344 625.300781 L 818.421875 570.640625 C 818.542969 565.441406 817.574219 561.503906 815.996094 558.523438 Z M 780.242188 593.71875 " fill-opacity="1" fill-rule="nonzero"/>
+                                            
+                                            <!-- Frame Size -->
+                                            <text x="640" y="320" style="font-size: 32px; font-weight: 500;" id="frameSizeViz">Frame: -</text>
+                                            
+                                            <!-- Saddle Height -->
+                                            <line x1="510" y1="130" x2="623" y2="575" stroke="red" stroke-width="6" stroke-dasharray="10" />
+                                            <text x="280" y="280" style="font-size: 32px; font-weight: 500;" id="saddleHeightViz">Saddle: -</text>
+                                            
+                                            <!-- Crank Size -->
+                                            <line x1="665" y1="595" x2="780" y2="608" stroke="red" stroke-width="6" stroke-dasharray="10" />
+                                            <text x="640" y="680" style="font-size: 32px; font-weight: 500;" id="crankSizeViz">Crank: -</text>
+                                            
+                                            <!-- Stem Size -->
+                                            <line x1="930" y1="130" x2="1000" y2="110" stroke="red" stroke-width="6" stroke-dasharray="10" />
+                                            <text x="850" y="100" style="font-size: 32px; font-weight: 500;" id="stemSizeViz">Stem: -</text>
+                                            
+                                        </svg>
+                                    </div>
+                                    
+                                    <!-- Visualisasi Handlebar-->
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1440 810" style="width: 60%; height: auto; margin-left: auto; margin-right: auto; margin-top: 50px"  preserveAspectRatio="xMidYMid meet" version="1.0">
+                                            <defs><clipPath id="0d296ca67c"><path d="M 70.289062 116.300781 L 1369.164062 116.300781 L 1369.164062 692.707031 L 70.289062 692.707031 Z M 70.289062 116.300781 " clip-rule="nonzero"/></clipPath></defs><g clip-path="url(#0d296ca67c)"><path fill="#1a1a1a" d="M 639.550781 137.191406 L 639.550781 129.15625 C 639.550781 122.054688 645.308594 116.300781 652.410156 116.300781 C 660.390625 116.300781 673.917969 116.300781 681.894531 116.300781 C 689 116.300781 694.753906 122.054688 694.753906 129.15625 L 694.753906 137.191406 L 744.695312 137.191406 L 744.695312 129.15625 C 744.695312 122.054688 750.453125 116.300781 757.554688 116.300781 C 765.535156 116.300781 779.058594 116.300781 787.039062 116.300781 C 794.140625 116.300781 799.898438 122.054688 799.898438 129.15625 L 799.898438 137.191406 L 1130.949219 137.191406 C 1139.070312 137.191406 1145.988281 142.339844 1148.617188 149.546875 L 1200.398438 149.546875 C 1227.003906 149.546875 1259.617188 151.417969 1289.722656 171.867188 C 1328.078125 197.925781 1369.164062 260.574219 1369.164062 423.433594 C 1369.164062 539.535156 1347.113281 606.519531 1322.28125 642.546875 C 1297.613281 678.347656 1267.84375 690.933594 1242.199219 692.539062 C 1209.761719 694.574219 1180.859375 678.535156 1164.472656 655.390625 C 1150.441406 635.574219 1155.152344 608.101562 1174.96875 594.078125 C 1194.753906 580.082031 1222.167969 584.738281 1236.230469 604.449219 C 1236.367188 604.453125 1236.597656 604.457031 1236.75 604.433594 C 1237.074219 604.386719 1237.402344 604.296875 1237.746094 604.179688 C 1239.449219 603.601562 1241.242188 602.394531 1243.011719 600.738281 C 1251.984375 592.355469 1259.644531 579.15625 1265.785156 560.105469 C 1275.484375 530 1281.148438 485.835938 1281.148438 423.433594 C 1281.148438 360.699219 1275.386719 316.71875 1265.394531 285.976562 C 1258.480469 264.683594 1250.480469 251.578125 1240.246094 244.625 C 1227.011719 235.632812 1212.09375 237.519531 1200.398438 237.519531 L 1027.652344 237.519531 L 996.097656 256.300781 C 982.503906 264.398438 967.285156 268.628906 951.816406 268.628906 L 799.898438 268.628906 L 799.898438 276.660156 C 799.898438 283.761719 794.140625 289.515625 787.039062 289.515625 L 757.554688 289.515625 L 757.554688 351.09375 C 757.554688 358.191406 751.796875 363.949219 744.695312 363.949219 C 732.644531 363.949219 706.804688 363.949219 694.753906 363.949219 C 687.652344 363.949219 681.894531 358.191406 681.894531 351.09375 L 681.894531 289.515625 L 652.410156 289.515625 C 645.308594 289.515625 639.550781 283.761719 639.550781 276.660156 L 639.550781 268.628906 L 513.640625 268.628906 C 499.863281 268.628906 486.257812 265.269531 473.808594 258.785156 L 432.980469 237.519531 L 239.054688 237.519531 C 227.359375 237.519531 212.4375 235.632812 199.203125 244.625 C 188.96875 251.578125 180.972656 264.683594 174.050781 285.976562 C 164.0625 316.71875 158.300781 360.699219 158.300781 423.433594 C 158.300781 485.835938 163.964844 530 173.667969 560.105469 C 179.804688 579.15625 187.46875 592.355469 196.4375 600.738281 C 198.210938 602.394531 200.003906 603.601562 201.707031 604.179688 C 202.046875 604.296875 202.378906 604.386719 202.699219 604.433594 C 202.851562 604.457031 203.085938 604.453125 203.222656 604.449219 C 217.28125 584.738281 244.695312 580.082031 264.476562 594.078125 C 284.300781 608.101562 289.007812 635.574219 274.976562 655.390625 C 258.589844 678.535156 229.691406 694.574219 197.25 692.539062 C 171.605469 690.933594 141.835938 678.347656 117.167969 642.546875 C 92.335938 606.519531 70.289062 539.535156 70.289062 423.433594 C 70.289062 260.574219 111.371094 197.925781 149.726562 171.867188 C 179.828125 151.417969 212.449219 149.546875 239.054688 149.546875 L 295.820312 149.546875 C 298.449219 142.339844 305.363281 137.191406 313.484375 137.191406 Z M 799.898438 150.042969 L 1130.949219 150.042969 C 1134.21875 150.042969 1136.871094 152.6875 1136.878906 155.953125 C 1136.894531 159.167969 1140.089844 162.402344 1143.308594 162.402344 C 1200.398438 162.402344 1200.398438 162.402344 1200.398438 162.402344 C 1224.820312 162.402344 1254.859375 163.726562 1282.496094 182.5 C 1319.128906 207.390625 1356.300781 267.871094 1356.300781 423.433594 C 1356.300781 535.59375 1335.679688 600.449219 1311.691406 635.257812 C 1289.957031 666.796875 1263.984375 678.296875 1241.394531 679.710938 C 1213.671875 681.449219 1188.976562 667.742188 1174.96875 647.964844 C 1165.039062 633.941406 1168.371094 614.496094 1182.402344 604.570312 C 1196.4375 594.644531 1215.886719 597.972656 1225.816406 611.996094 C 1228.328125 615.539062 1231.992188 617.324219 1236.351562 617.320312 C 1240.859375 617.316406 1246.550781 615.03125 1251.792969 610.128906 C 1262.007812 600.585938 1271.039062 585.730469 1278.027344 564.046875 C 1288.011719 533.066406 1294.011719 487.644531 1294.011719 423.433594 C 1294.011719 358.875 1287.90625 313.640625 1277.628906 282.007812 C 1269.523438 257.0625 1259.46875 242.136719 1247.476562 233.992188 C 1231.785156 223.332031 1214.261719 224.664062 1200.398438 224.664062 L 1025.882812 224.664062 C 1024.730469 224.664062 1023.589844 224.976562 1022.59375 225.570312 L 989.523438 245.257812 C 977.9375 252.152344 964.980469 255.773438 951.816406 255.773438 L 799.898438 255.773438 Z M 639.550781 150.042969 L 639.550781 255.773438 L 513.640625 255.773438 C 501.917969 255.773438 490.34375 252.902344 479.75 247.386719 L 437.527344 225.390625 C 436.609375 224.914062 435.589844 224.664062 434.554688 224.664062 L 239.054688 224.664062 C 225.183594 224.664062 207.664062 223.332031 191.972656 233.992188 C 179.984375 242.136719 169.925781 257.0625 161.820312 282.007812 C 151.542969 313.640625 145.441406 358.875 145.441406 423.433594 C 145.441406 487.644531 151.441406 533.066406 161.425781 564.046875 C 168.414062 585.730469 177.445312 600.585938 187.652344 610.128906 C 192.898438 615.03125 198.585938 617.316406 203.097656 617.320312 C 207.457031 617.324219 211.125 615.539062 213.632812 611.996094 C 223.5625 597.972656 243.015625 594.644531 257.046875 604.570312 C 271.078125 614.496094 274.410156 633.941406 264.480469 647.964844 C 250.476562 667.742188 225.777344 681.449219 198.058594 679.710938 C 175.464844 678.296875 149.492188 666.796875 127.757812 635.257812 C 103.769531 600.449219 83.148438 535.59375 83.148438 423.433594 C 83.148438 267.871094 120.320312 207.390625 156.957031 182.5 C 184.589844 163.726562 214.628906 162.402344 239.054688 162.402344 L 301.125 162.402344 C 301.132812 162.398438 307.554688 162.019531 307.554688 155.972656 C 307.554688 152.699219 310.207031 150.042969 313.484375 150.042969 Z M 258.121094 625.164062 C 256.652344 620.933594 253.964844 617.121094 250.1875 614.328125 C 242.253906 608.464844 231.90625 608.777344 224.398438 614.328125 C 216.890625 619.875 235.03125 619.113281 242.539062 624.664062 C 247.425781 628.273438 250.800781 634.507812 254.152344 633.34375 C 257.503906 632.179688 259.28125 628.515625 258.121094 625.164062 Z M 1181.328125 625.164062 C 1182.800781 620.933594 1185.488281 617.121094 1189.265625 614.328125 C 1197.191406 608.464844 1207.542969 608.777344 1215.050781 614.328125 C 1222.558594 619.875 1204.421875 619.113281 1196.914062 624.664062 C 1192.019531 628.273438 1188.652344 634.507812 1185.296875 633.34375 C 1181.941406 632.179688 1180.164062 628.515625 1181.328125 625.164062 Z M 117.933594 265.101562 C 105.859375 295.753906 97.410156 340.867188 97.410156 407.746094 C 97.410156 417.738281 97.609375 427.261719 97.988281 436.335938 C 98.136719 439.878906 101.132812 442.636719 104.679688 442.488281 C 108.226562 442.339844 110.984375 439.34375 110.835938 435.800781 C 110.464844 426.898438 110.269531 417.550781 110.269531 407.746094 C 110.269531 343.089844 118.226562 299.445312 129.902344 269.8125 C 131.203125 266.511719 129.574219 262.777344 126.273438 261.476562 C 122.972656 260.175781 119.234375 261.800781 117.933594 265.101562 Z M 1321.519531 265.101562 C 1333.589844 295.753906 1342.039062 340.867188 1342.039062 407.746094 C 1342.039062 417.738281 1341.839844 427.261719 1341.464844 436.335938 C 1341.3125 439.878906 1338.316406 442.636719 1334.769531 442.488281 C 1331.222656 442.339844 1328.46875 439.34375 1328.609375 435.800781 C 1328.984375 426.898438 1329.183594 417.550781 1329.183594 407.746094 C 1329.183594 343.089844 1321.222656 299.445312 1309.550781 269.8125 C 1308.25 266.511719 1309.875 262.777344 1313.175781 261.476562 C 1316.476562 260.175781 1320.210938 261.800781 1321.519531 265.101562 Z M 681.894531 129.15625 C 681.894531 135.292969 681.894531 143.617188 681.894531 143.617188 C 681.894531 147.167969 684.773438 150.042969 688.324219 150.042969 L 751.125 150.042969 C 754.675781 150.042969 757.554688 147.167969 757.554688 143.617188 L 757.554688 129.15625 L 787.039062 129.15625 L 787.039062 276.660156 C 787.039062 273.113281 783.488281 276.660156 787.039062 276.660156 C 775.195312 276.660156 751.125 276.660156 751.125 276.660156 C 747.574219 276.660156 744.695312 279.539062 744.695312 283.089844 L 744.695312 351.09375 L 694.753906 351.09375 C 694.753906 333.027344 694.753906 283.089844 694.753906 283.089844 C 694.753906 279.539062 691.878906 276.660156 688.324219 276.660156 C 688.324219 276.660156 664.253906 276.660156 652.410156 276.660156 L 652.410156 129.15625 L 681.894531 129.15625 " fill-opacity="1" fill-rule="evenodd"/></g>
+                                            
+                                            <!-- HB Size -->
+                                            <line x1="190" y1="100" x2="1250" y2="100" stroke="red" stroke-width="10" stroke-dasharray="18" />
+                                            <text x="480" y="70" style="font-size: 54px; font-weight: 500;" id="handlebarSizeViz">HandleBar: -</text>   
+                                        </svg>
+                                    </div>
+                                </div>
+
+                                
+                                <!-- STRUK REKOMENDASI -->
+                                <div id="strukRekomendasi" style="max-width:520px; margin:40px auto 0 auto; background:#fff; border:1.5px solid #e0e0e0; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.04); padding:0 0 32px 0; font-family:monospace;">
+                                    <div style="border-radius:12px 12px 0 0; background:#fff; padding:20px 0 0 0; text-align:center;">
+                                        <div style="font-size:3rem; margin-bottom:8px;">
+                                            <i class="bi bi-bicycle" style="font-size: 4rem; color: #ddd; margin-bottom: 1rem;"></i>
+                                        </div>
+                                        <div style="font-size:1.25rem; font-weight:bold;">Ukuran Sepeda Terbaik untuk Kamu</div>
+                                        <div style="font-size:1.05rem; color:#444; margin-bottom:4px;">Berdasarkan Data Tubuhmu</div>
+                                        <div style="font-size:0.9rem; color:#888;">Tanggal: <span id="strukTanggal"></span></div>
+                                    </div>
+                                    <div style="border-top:1.5px dashed #bbb; margin:16px 0 0 0;"></div>
+                                    <div style="padding:24px 36px 0 36px;">
+                                        <div style="font-size:1.1rem; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center;">
+                                            <span>Frame Size</span>
+                                            <span id="strukFrameSize" style="font-weight:bold; color:#20c997;">-</span>
+                                        </div>
+                                        <div style="font-size:1.1rem; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center;">
+                                            <span>Saddle Height</span>
+                                            <span id="strukSaddleHeight" style="font-weight:bold; color:#20c997;">-</span>
+                                        </div>
+                                        <div style="font-size:1.1rem; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center;">
+                                            <span>Crank Length</span>
+                                            <span id="strukCrankSize" style="font-weight:bold; color:#20c997;">-</span>
+                                        </div>
+                                        <div style="font-size:1.1rem; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center;">
+                                            <span>Stem Length</span>
+                                            <span id="strukStemSize" style="font-weight:bold; color:#20c997;">-</span>
+                                        </div>
+                                        <div style="font-size:1.1rem; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center;">
+                                            <span>Handlebar Width</span>
+                                            <span id="strukHandlebarSize" style="font-weight:bold; color:#20c997;">-</span>
+                                        </div>
+                                    </div>
+                                    <div style="border-top:1.5px dashed #bbb; margin:24px 0 0 0;"></div>
+                                    <div style="padding:16px 36px 0 36px; font-size:1.05rem; color:#444; text-align:center;">
+                                        <div style="margin-bottom:8px;">Terima kasih telah menggunakan layanan SepedaKu!</div>
+                                        <!-- <div style="font-size:0.9rem; color:#aaa;">isi nama website</div> -->
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
-    <div class="container d-flex justify-content-center align-items-center min-vh-100">
-        <div class="card shadow p-4" style="max-width: 600px; width: 100%;">
-          <div class="card-body text-center">
-            <h1 class="card-title mb-3">Selamat Datang!</h1>
-            <p class="card-text mb-4">
-              Aplikasi ini dibuat untuk memudahkan Anda dalam melakukan Fitting sepeda RoadBike secara digital.
-            </p>
-            <a href="/tutorial" class="btn btn-primary btn-lg">Mulai Sekarang!!</a>
+    <!-- Section About (Section 6) -->
+    <section class="section6 py-5" id="tentang">
+      <div class="container" style="padding: 2rem 0;">
+        <div class="text-center mb-3">
+            <h2 class="section-title">Tentang Aplikasi</h2>
+            <div class="section-underline"></div>
+            <p class="section-subtitle">Apa sih yang bikin aplikasi ini beda?</p>
+        </div>
+
+        <div class="card shadow-sm mb-4">
+          <div class="card-body p-0">
+            <h5 class="card-title">Bike Fitting</h5>
+            <p class="card-text">
+                Isi data tubuhmu sebentar, dan aplikasi ini akan kasih rekomendasi ukuran sepeda secara otomatis. Cepat, simpel, dan bikin kamu lebih yakin sebelum beli sepeda.            </p>
           </div>
         </div>
-    </div>
-   
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script>
-        setTimeout(() => {
-          const splash = document.getElementById('splash');
-          splash.classList.add('fade-out');
-    
-          setTimeout(() => {
-            splash.classList.add('d-none');
-            document.getElementById('main-content').classList.remove('d-none');
-          }, 500); // Waktu tunggu untuk transisi selesai
-        }, 3000); // Splash muncul selama 3 detik
-    </script>
+        <div class="card shadow-sm mb-4">
+          <div class="card-body p-0">
+            <h5 class="card-title">Fitur Utama</h5>
+            <ul>
+              <li>Prediksi ukuran frame, stem, crank, dan saddle height</li>
+              <li>Visualisasi sepeda berbasis SVG</li>
+              <li>Proses rekomendasi menggunakan algoritma Decision Tree</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="card shadow-sm mb-4">
+          <div class="card-body p-0">
+            <h5 class="card-title">Referensi</h5>
+            <ul>
+              <li><a href="https://www.sheldonbrown.com/frame-sizing.html" target="_blank">Sheldon Brown's Bicycle Fit</a></li>
+              <li><a href="https://www.bikefit.com/" target="_blank">Bike Fit Calculator – The Ultimate Guide</a></li>
+              <li><a href="https://www.rodalink.com/id/panduan-ukuran-road-bike" target="_blank">Rodalink – Panduan Ukuran Road Bike</a></li>
+              <li><a href="https://sepeda.me/sepeda/panduan-memilih-sepeda-balap-road-bike.html" target="_blank">sepeda.me – Panduan Memilih Sepeda Balap Road Bike</a></li>
+              <li>panduan pengukuran tubuh untuk fitting sepeda melalui YouTube dengan kata kunci seperti "cara mengukur inseam sepeda", "cara mengukur panjang lengan", "cara mengukur torso", dan "cara mengukur lebar bahu".</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container footer-flex">
+        <div class="footer-brand">&copy; 2024 <span style="color:#20c997;">SepedaKu</span></div>
+        <div class="footer-author">Dibuat oleh Ahmad Fadhilah</div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="../static/js/main.js"></script>
     
 </body>
-</html>
+</html> 
