@@ -1,45 +1,76 @@
 import pandas as pd
-import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.tree import DecisionTreeRegressor
 import joblib
-from sklearn.metrics import mean_absolute_error, r2_score, mean_squared_error
+from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, mean_absolute_error
 
-# Membaca dataset
-file_path = '../dataset/bike_fitting_dataset.csv'
-data = pd.read_csv(file_path)
+# --- 1. Baca datasets ---
+file_path = '../datasets/bike_fitting_datasets.csv'
+df = pd.read_csv(file_path)
+print("Data siap digunakan:")
+print(df.head())
 
-# Fitur dan target
-fitur = ['Tinggi_Badan', 'Inseam', 'Torso', 'Lengan', 'Bahu']
-target = ['Frame', 'Saddle', 'Crank', 'Handlebar', 'Stem']
+# --- 2. Pisah Fitur dan Target ---
+X = df[['Tinggi_Badan', 'Inseam', 'Torso', 'Lengan', 'Bahu']]
 
-X = data[fitur]
-y = data[target]
+y_frame = df['Frame']
+y_stem = df['Stem']
+y_handlebar = df['Handlebar']
+y_saddle = df['Saddle']
 
-# Split data untuk training dan testing
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# --- 3. Bagi Data: Latih (80%) dan Uji (20%) ---
+X_train, X_test = train_test_split(X, test_size=0.2, random_state=42)
 
-# Membuat model Decision Tree
-model = DecisionTreeRegressor(random_state=42)
-model.fit(X_train, y_train)
+# Split target masing-masing
+y_frame_train, y_frame_test = train_test_split(y_frame, test_size=0.2, random_state=42)
+y_stem_train, y_stem_test = train_test_split(y_stem, test_size=0.2, random_state=42)
+y_handlebar_train, y_handlebar_test = train_test_split(y_handlebar, test_size=0.2, random_state=42)
+y_saddle_train, y_saddle_test = train_test_split(y_saddle, test_size=0.2, random_state=42)
 
-# Evaluasi performa model
-prediksi = model.predict(X_test)
-prediksi = pd.DataFrame(prediksi, columns=target)
-prediksi['Frame'] = prediksi['Frame'].round().astype(int)
-mae = mean_absolute_error(y_test, prediksi)
-r2 = r2_score(y_test, prediksi)
-mse = mean_squared_error(y_test, prediksi)
-rmse = np.sqrt(mean_squared_error(y_test, prediksi))
+# --- 4. Latih Model ---
+# Klasifikasi untuk Frame, Stem, Handlebar
+clf_frame = DecisionTreeClassifier(random_state=42)
+clf_stem = DecisionTreeClassifier(random_state=42)
+clf_handlebar = DecisionTreeClassifier(random_state=42)
 
-# Performa model
-print(f'Performa Model:')
-print(f'- Mean Absolute Error (MAE): {mae:.2f}')
-print(f'- Mean Squared Error (MSE): {mse:.2f}')
-print(f'- Root Mean Squared Error (RMSE): {rmse:.2f}')
-print(f'- R^2 Score: {r2:.2f}')
+clf_frame.fit(X_train, y_frame_train)
+clf_stem.fit(X_train, y_stem_train)
+clf_handlebar.fit(X_train, y_handlebar_train)
 
-# Simpan model
-joblib.dump(model, 'bike_fitting_model.pkl')
+# Regresi untuk Saddle (nilai kontinu)
+reg_saddle = DecisionTreeRegressor(random_state=42)
+reg_saddle.fit(X_train, y_saddle_train)
 
-print('Model berhasil dilatih dan disimpan sebagai bike_fitting_model.pkl') 
+# --- 5. Evaluasi Model ---
+frame_pred = clf_frame.predict(X_test)
+stem_pred = clf_stem.predict(X_test)
+handlebar_pred = clf_handlebar.predict(X_test)
+saddle_pred = reg_saddle.predict(X_test)
+
+scores = {
+    'frame_accuracy': accuracy_score(y_frame_test, frame_pred),
+    'stem_accuracy': accuracy_score(y_stem_test, stem_pred),
+    'handlebar_accuracy': accuracy_score(y_handlebar_test, handlebar_pred),
+    'saddle_mae': mean_absolute_error(y_saddle_test, saddle_pred)
+}
+
+print("\n📊 Performa Model:")
+for k, v in scores.items():
+    print(f"  {k}: {v:.3f}")
+
+# --- 6. Simpan Model dan Skor ---
+joblib.dump(clf_frame, 'frame_model.pkl')
+joblib.dump(clf_stem, 'stem_model.pkl')
+joblib.dump(clf_handlebar, 'handlebar_model.pkl')
+joblib.dump(reg_saddle, 'saddle_model.pkl')
+joblib.dump(scores, 'model_scores.pkl')
+
+print("\n✅ Semua model dan skor berhasil disimpan di folder 'models/'")
+
+# --- 7. Contoh Prediksi ---
+print(f'\nContoh Prediksi (5 data pertama):')
+print("Frame | Stem | Handlebar | Saddle")
+for i in range(min(5, len(frame_pred))):
+    print(f"{frame_pred[i]:5.0f} | {stem_pred[i]:4.0f} | {handlebar_pred[i]:9.0f} | {saddle_pred[i]:6.1f}")
+
+print('Model berhasil dilatih dan disimpan!') 
